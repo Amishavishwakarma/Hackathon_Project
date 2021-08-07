@@ -28,7 +28,7 @@ exports.login = (req, res) => {
             res.status(200).send("you have login sucessfully")
         }
         else {
-            res.status(400).send("you have to signup first")
+            res.send("you have to signup first")
         }
     }).catch((err) => {
         res.send(err)
@@ -58,11 +58,11 @@ exports.create_event = (req, res) => {
                             res.cookie('jwtevent', tokon, { httpOnly: true, secure: true, maxAge: 3600000 })
                             res.status(200).send("event has been created");
                         }).catch((err) => {
-                            res.status(400).send(err);
+                            res.send(err);
                         })
                 }
                 else {
-                    res.status(400).send("you cannot create events")
+                    res.send("you cannot create events")
                 }
             }).catch((err) => {
                 res.send(err)
